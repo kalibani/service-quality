@@ -3,7 +3,16 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  if(req.session.hasLogin){
+    res.render('index', { title: 'Express' });
+  } else {
+    res.redirect('/login')
+  }
 });
+
+//LOGIN MENU
+router.get('/login', (req, res)=>{
+  res.render('login')
+}) 
 
 module.exports = router;

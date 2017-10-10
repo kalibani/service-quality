@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include ../partial/head%>
+</head>
+
+<body>
+    <%- include ../partial/menubar%>
+        <h1>Halaman Instructor</h1>
+        <a href="/instructor/add"><button>Add Instructor</button></a>
+        <div class="container">
+            <div class="table-responsive" class="well well-sm">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>NO</th>
+                            <th>NAMA</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% var i=1; data.forEach(z =>{ %>
+                            <tr>
+                                <td>
+                                    <%=i++%>
+                                </td>
+                                <td>
+                                    <%=z.name%>
+                                </td>
+                                <td>
+                                    <a href="instructor/delete/<%=z.id%>">Delete</a>
+                                </td>
+                            </tr>
+                            <%})%>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- </div> -->
+</body>
+
+</html>

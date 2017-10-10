@@ -6,7 +6,7 @@ const hash = require('../helper/hash')
 /* GET home page. */
 router.get('/', function(req, res, next) {
   if(req.session.hasLogin){
-    res.render('index', { title: 'HACKTIV8' });
+    res.render('index', { title: 'HACKTIV8', session: req.session });
   } else {
     res.redirect('/login')
   }

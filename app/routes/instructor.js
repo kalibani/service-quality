@@ -15,8 +15,38 @@ router.get('/', (req, res)=>{
         order:[['id', 'ASC']]
     })
     .then(inst=>{
-        res.render('intructor/instructor', {data:inst, title: 'Instructor'})
+        res.render('instructor/instructor', {data:inst, title: 'Instructor', session: req.session})
     })
+})
+
+router.get('/add', (req, res)=>{
+    res.render('instructor/add', {title: 'Add Instructor', session: req.session})
+})
+
+router.post('/add', (req, res)=>{
+    model.Instructor.create({
+        name: req.body.name
+    })
+    .then(()=>{
+        res.redirect('/instructor')
+    })
+    .catch(err=>{
+        res.send(err)
+    })
+})
+
+router.get('/delete/:id', (req, res) => {
+    model.Instructor.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(() => {
+            res.redirect('/instructor')
+        })
+        .catch(err => {
+            res.send(err)
+        })
 })
 
 module.exports = router;

@@ -17,6 +17,7 @@
                     </li>
                 </ul>
             </li>
+            <%if (session.user.role === 'admin') { %>
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin
                     <span class="caret"></span>
@@ -30,6 +31,7 @@
                     </li>
                 </ul>
             </li>
+            <%}%>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li>

@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
 //LOGIN MENU
 router.get('/login', (req, res)=>{
   res.render('login', {error_login: false})
-}) 
+})
 
 router.post('/login', (req, res)=>{
   model.User.findOne({

@@ -7,7 +7,8 @@ router.get('/', (req, res)=>{
     include: [{all: true}]
   })
   .then(dataUserQuestioner=>{
-    res.render('questioner_students', {dataUserQuestioner: dataUserQuestioner})
+    // res.send(dataUserQuestioner)
+    // res.render('questioner_students', {dataUserQuestioner: dataUserQuestioner})
   })
   .catch(err=>{
     res.send(err)

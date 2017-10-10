@@ -8,5 +8,25 @@
 </head>
 <body>
     <h1>PLEASE LOGIN</h1>
+    <form action="/login" method="post">
+    <p>
+        <h3>UserName</h3><br>
+        <input type="text" name="username" placeholder="type username">
+    </p>
+    <p>
+        <h3>Password</h3><br>
+        <input type="password" name="password" placeholder="type password">
+    </p>
+    <p>
+        <input type="submit" value="SUBMIT">
+    </p>
+    </form>
+    <h4 style="color: red">
+        <% if(error_login === true) { %>
+            Error Login : username and password not match or username doesn't exist
+            <% } %>
+    </h4>
+    REGISTER
+    <a href="/register">here</a>
 </body>
 </html>

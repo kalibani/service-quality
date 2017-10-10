@@ -1,32 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+<%- include ./partial/head%>
 </head>
-<body>
-    <h1>PLEASE LOGIN</h1>
-    <form action="/login" method="post">
-    <p>
-        <h3>UserName</h3><br>
-        <input type="text" name="username" placeholder="type username">
-    </p>
-    <p>
-        <h3>Password</h3><br>
-        <input type="password" name="password" placeholder="type password">
-    </p>
-    <p>
-        <input type="submit" value="SUBMIT">
-    </p>
-    </form>
-    <h4 style="color: red">
-        <% if(error_login === true) { %>
-            Error Login : username and password not match or username doesn't exist
-            <% } %>
-    </h4>
-    REGISTER
-    <a href="/register">here</a>
+<body style="background-color: rgba(245, 231, 43, 0.404)">
+    <h1 >PLEASE LOGIN</h1>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-6">
+                <form action="/login" method="post">
+                    <p>
+                        <h3>UserName</h3>
+                        <br>
+                        <input type="text" name="username" placeholder="type username">
+                    </p>
+                    <p>
+                        <h3>Password</h3>
+                        <br>
+                        <input type="password" name="password" placeholder="type password">
+                    </p>
+                    <p>
+                        <input type="submit" value="SUBMIT">
+                    </p>
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <img src="images/loginreq.jpeg" alt="">
+
+            </div>
+            <div>
+                <p class="text-info">Don't have any user account? Just click down here</p>
+                <h3>REGISTER<small><a href="/register">here</a></small></h3>    
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <h4 style="color: red">
+            <% if(error_login === true) { %>
+                Error Login : username and password not match or username doesn't exist
+                <% } %>
+        </h4>
+    </div>
+
 </body>
 </html>

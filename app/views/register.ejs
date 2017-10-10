@@ -1,36 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+<%- include ./partial/head%>
 </head>
-<body>
-    <h2>Register Your Self </h2>
-    <form action="/register" method="post">
-        Username
-        <br>
-        <p>
-            <input type="text" name="username" placeholder="type username">
-        </p>
-        PASSWORD
-        <br>
-        <p>
-            <input type="password" name="password" placeholder="type password">
-        </p>
-        ROLE
-        <br>
-        <p>
-            <select name="role">
-                <option value="student">student</option>
-                <option value="admin">administrator</option>
-            </select>
-        </p>
-        <p>
-            <input type="submit" value="SUBMIT">
-        </p>
-    </form>
+<body style="background-color: rgb(233, 201, 113)">
+    <h2 align="center">Register Your Self </h2>
+    <div align="center">
+        <form action="/register" method="post">
+            Username
+            <br>
+            <p>
+                <input type="text" name="username" placeholder="type username">
+            </p>
+            PASSWORD
+            <br>
+            <p>
+                <input type="password" name="password" placeholder="type password">
+            </p>
+            ROLE
+            <br>
+            <p>
+                <select name="role">
+                    <option value="student">student</option>
+                    <option value="admin">administrator</option>
+                </select>
+            </p>
+            <p>
+                <input type="submit" value="SUBMIT">
+            </p>
+        </form>
+    </div>
     <br>
     <br>
     <h4 style="color: red">

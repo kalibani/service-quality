@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <%- include ../partial/head%>
+  </head>
+  <body style="padding: 50px">
+    <%- include ../partial/menubar%>
+    <h1>ADD DATA QUESTIONER</h1>
+    <% if(error) { %>
+    <h3 style="color:red"><%=error%></h3>
+    <%}%>
+    <form class="" action="/questioners/add" method="POST">
+      <table>
+        <fieldset>
+          <br>
+          <legend>Add Data Questioner:</legend>
+          Pertanyaan:<br>
+          <textarea rows="4" cols="50" name="pertanyaan"></textarea>
+          <br>
+          Dimensi:<br>
+          <select class="" name="dimensi">
+            <option value="Reliability">Reliability</option>
+            <option value="Tangibles">Tangibles</option>
+            <option value="Empathy">Empathy</option>
+            <option value="Assurance">Assurance</option>
+            <option value="Responsiveness">Responsiveness</option>
+          </select>
+          <br><br>
+          <input type="submit" value="Add Questioner">
+        </fieldset>
+      </table>
+    </form>
+  </body>
+
+</html>

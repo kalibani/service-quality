@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 
 //LOGIN MENU
 router.get('/login', (req, res)=>{
-  res.render('login', {error_login: false})
+  res.render('login', { error_login: false, title: 'Login'})
 })
 
 router.post('/login', (req, res)=>{
@@ -36,16 +36,17 @@ router.post('/login', (req, res)=>{
       }
       res.redirect('/')
     } else {
-      res.render('login', {error_login: true})
+      res.render('login', { error_login: true, title: 'Login'})
     }
   })
   .catch(err=>{
-    res.render('login', {error_login: true})
+    res.render('login', { error_login: true, title: 'login'})
   })
 })
 
+// REGISTER AREA ==================
 router.get('/register', (req, res) => {
-  res.render('register', { error_reg: false })
+  res.render('register', { error_reg: false, title: 'Register'})
 })
 
 router.post('/register', (req, res) => {
@@ -55,11 +56,17 @@ router.post('/register', (req, res) => {
     role: req.body.role
   })
     .then(() => {
-      res.render('succedreg')
+      res.render('succedreg',{title: 'Success'})
     })
     .catch(err => {
-      res.render('register', { error_reg: true })
+      res.render('register', { error_reg: true, title: 'Register' })
     })
+})
+
+// LOG OUT =====================
+router.get('/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('/')
 })
 
 module.exports = router;

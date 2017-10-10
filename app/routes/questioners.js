@@ -7,7 +7,7 @@ router.get('/', (req, res)=>{
     order: [['id', 'ASC']]
   })
   .then(dataQuestioner =>{
-    res.render('questioner', {dataQuestioner: dataQuestioner})
+    res.render('questioner/questioner', { dataQuestioner: dataQuestioner,  title: 'Questioner'})
   })
   .catch(err=>{
     res.send(err)
@@ -15,7 +15,7 @@ router.get('/', (req, res)=>{
 })
 
 router.get('/add', (req, res)=>{
-  res.render('add_questioner', {error: null})
+  res.render('questioner/add_questioner', { error: null, title: 'ADD Questioner'})
 })
 
 router.post('/add', (req, res)=>{
@@ -34,7 +34,7 @@ router.post('/add', (req, res)=>{
 router.get('/edit/:id', (req, res) =>{
   model.Questioner.findById(req.params.id)
   .then(dataQuestioner =>{
-    res.render('edit_questioner', {dataQuestioner, error: null})
+    res.render('questioner/edit_questioner', { dataQuestioner, error: null, title: 'Questioner Edit'})
   })
   .catch(err =>{
     res.send(err)

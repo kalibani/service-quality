@@ -19,6 +19,8 @@ app.set('view engine', 'ejs');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(session(
   {secret: 'is it secret?',
+  resave: false,
+  saveUninitialized: true,
   cookie: {}}
 ))
 app.use(logger('dev'));

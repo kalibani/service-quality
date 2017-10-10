@@ -10,7 +10,7 @@ module.exports = {
 
     */
     return queryInterface.bulkInsert('Questioners', [{
-      pertanyaan: "Instruktu memiliki pengetahuan yang sesuai dengan bidangnya?",
+      pertanyaan: "Instruktur memiliki pengetahuan yang sesuai dengan bidangnya?",
       dimensi: "reliability",
       createdAt: new Date(),
       updatedAt: new Date()

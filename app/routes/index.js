@@ -30,6 +30,7 @@ router.post('/login', (req, res)=>{
     if(user.password === hash_password){
       req.session.hasLogin = true
       req.session.user = {
+        id: user.id,
         username : user.username,
         role : user.role,
         loginTime : new Date()

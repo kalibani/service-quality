@@ -3,6 +3,14 @@
 <head>
 <%- include ../partial/head%>
 </head>
+<script>
+   function clickAndDisable(link) {
+     // disable subsequent clicks
+     link.onclick = function(event) {
+        event.preventDefault();
+     }
+   }
+</script>
 <body>
     <%- include ../partial/menubar%>
     <h1>SELECT INSTRUCTOR</h1>
@@ -27,12 +35,12 @@
                         </label>
                     </td>
                     <td>
-                        <a href="/questioner_students/<%=r.id%>/answer">CLICK</a>
+                        <a href="/questioner_students/<%=r.id%>/answer" onclick="clickAndDisable(this);">CLICK</a>
                     </td>
                 </tbody>
                 <%})%>
             </table>
     </form>
-    
+
 </body>
 </html>

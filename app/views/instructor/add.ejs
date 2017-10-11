@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include ../partial/head%>
+</head>
+<body>
+    <%- include ../partial/menubar%>
+    <h1>ADD DATA INSTRUCTOR</h1>
+    <form class="container" action="/instructor/add" method="POST">
+        <table>
+            <fieldset>
+                <br>
+                <legend>Add Data Instructor:</legend>
+                <input type="text" name="name" placeholder="insert new instructor">
+                <input type="submit" value="SAVE">
+            </fieldset>
+        </table>
+    </form>
+</body>
+
+</html>

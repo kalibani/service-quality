@@ -10,5 +10,10 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
+
+  Questioner.associate = function (models) {
+    Questioner.belongsToMany(models.User, {through: 'UserQuestioner'})
+    Questioner.hasMany(models.UserQuestioner)
+  }
   return Questioner;
 };

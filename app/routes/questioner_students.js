@@ -11,7 +11,7 @@ router.use((req, res, next) => {
 })
 
 router.get('/', (req, res) => {
-  model.Instructor.findAll()
+  model.Instructor.findAll({order:[['id','ASC']]})
     .then(instructor => {
       res.render('answer-questioner/select-instructor', { data: instructor, title: 'Select', session: req.session })
     })
@@ -51,9 +51,19 @@ router.post('/:id/answer', (req, res) => {
       updatedAt: new Date()
     })
       .then(() => {
-        // res.send(ok)
-        // res.send('Anda Telah mengisi kuesioner')
-        res.redirect('/questioner_students')
+        model.Instructor.update({
+          status: true
+        },{
+          where: {
+            id: req.params.id,
+          }
+        })
+        .then(()=>{
+          res.redirect('/questioner_students')
+        })
+        .catch(err=>{
+          res.send(err)
+        })
       })
       .catch(err => {
         res.send(err)

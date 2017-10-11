@@ -2,6 +2,16 @@
 <html lang="en">
 <head>
 <%- include ../partial/head%>
+<script type="text/javascript">
+function clickAndDisable(link)
+{
+    link.onclick = function(event)
+    {
+        event.preventDefault();
+    }
+}
+</script>
+
 </head>
 <body>
     <%- include ../partial/menubar%>
@@ -27,12 +37,16 @@
                         </label>
                     </td>
                     <td>
-                        <a href="/questioner_students/<%=r.id%>/answer">CLICK</a>
+                      <% if (r.status != true) {%>
+                      <a href="/questioner_students/<%=r.id%>/answer">CLICK</a>
+                      <% }else{ %>
+                        DONE!
+                        <%}%>
                     </td>
                 </tbody>
                 <%})%>
             </table>
     </form>
-    
+
 </body>
 </html>

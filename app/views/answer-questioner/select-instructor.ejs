@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include ../partial/head%>
+</head>
+<body>
+    <%- include ../partial/menubar%>
+    <h1>SELECT INSTRUCTOR</h1>
+    <form action="/questioner_students" method="post" class="container">
+
+            <table class="table table-bordered" border="1">
+                <thead>
+                    <th>NO</th>
+                    <th>NAME</th>
+                    <th>SELECT</th>
+                </thead>
+                <%data.forEach(r=>{%>
+                <tbody>
+                    <td>
+                        <label>
+                            <input type="integer" name="id" value="<%=r.id%>">
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <input type="text" name="nama_instruktur" value="<%=r.name%>">
+                        </label>
+                    </td>
+                    <td>
+                        <a href="/questioner_students/<%=r.id%>/answer">CLICK</a>
+                    </td>
+                </tbody>
+                <%})%>
+            </table>
+    </form>
+    
+</body>
+</html>

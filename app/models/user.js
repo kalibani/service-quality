@@ -20,6 +20,8 @@ module.exports = function(sequelize, DataTypes) {
   User.associate = function (models) {
     User.belongsToMany(models.Questioner, {through: 'UserQuestioner'})
     User.hasMany(models.UserQuestioner)
+    User.belongsToMany(models.Instructor, {through: 'UserInstructor'})
+    User.hasMany(models.UserInstructor)
   }
   return User;
 };

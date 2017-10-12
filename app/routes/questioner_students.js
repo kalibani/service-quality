@@ -11,8 +11,11 @@ router.use((req, res, next) => {
 })
 
 router.get('/', (req, res) => {
-  model.Instructor.findAll({order:[['id','ASC']]})
+  model.Instructor.findAll({
+    order:[['id','ASC']]
+  })
     .then(instructor => {
+      // res.send(instructor)
       res.render('answer-questioner/select-instructor', { data: instructor, title: 'Select', session: req.session })
     })
 })
@@ -31,9 +34,10 @@ router.post('/', (req, res) => {
 router.get('/:id/answer', (req, res) => {
   model.Questioner.findAll({ order: [['id', 'ASC']] })
     .then((dataQuestioner) => {
-      model.User.findAll()
-        .then((dataUser) => {
-          res.render('answer-questioner/questioner_students', { dataUser: dataUser, dataQuestioner: dataQuestioner, session: req.session, title: 'Quest' })
+      model.Instructor.findById(req.params.id)
+        .then((dataInstructor) => {
+          // res.send(dataUser)
+          res.render('answer-questioner/questioner_students', { dataInstructor: dataInstructor, dataQuestioner: dataQuestioner, session: req.session, title: 'Quest' })
         })
     })
 })
@@ -50,24 +54,21 @@ router.post('/:id/answer', (req, res) => {
       createdAt: new Date(),
       updatedAt: new Date()
     })
-      .then(() => {
-        model.Instructor.update({
-          status: true
-        },{
-          where: {
-            id: req.params.id,
-          }
-        })
-        .then(()=>{
-          res.redirect('/questioner_students')
-        })
-        .catch(err=>{
-          res.send(err)
-        })
-      })
-      .catch(err => {
-        res.send(err)
-      })
+    .then(() => {
+      // model.Instructor.update({
+      //   status: true
+      // },{
+      //   where: {
+      //     id: req.params.id,
+      //   }
+      // })
+      // .then(()=>{
+        res.redirect('/questioner_students')
+      // })
+    })
+    .catch(err => {
+      res.send(err)
+    })
   }
 })
 

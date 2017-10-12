@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<%- include ../partial/head%>
+  </head>
+  <body>
+      <%- include ../partial/menubar%>
+      <div class="col-sm-8">
+        <h3>REPORT</h3>
+        <table class="table table-hover">
+          <thead>
+            <th>Nama</th>
+            <th>Pertanyaan</th>
+            <th>Nilai Harapan</th>
+            <th>Nilai Kenyataan</th>
+            <th>Score</th>
+          </thead>
+          <% let isFirst = true;
+          let prevName = ''
+          data.forEach(r=>{ %>
+            <tbody>
+              <%  if (r.name === prevName ) {
+                prevName = r.name
+                if(!isFirst) {  %>
+                  <td></td>
+                  <%  }
+                } else {
+                  if (!isFirst) { %>
+                    <td><%=r.name%></td>
+                    <%  }
+                    prevName = r.name
+                  }
+                  if(isFirst) { %>
+                    <td><%=r.name%></td>
+                    <% isFirst = false
+                  } %>
+                  <td><%=r.pertanyaan%></td>
+                  <td><%=r.nilai_harapan/count%></td>
+                  <td><%=r.nilai_kenyataan/count%></td>
+                  <td><%=(r.nilai_kenyataan-r.nilai_harapan)/count%></td>
+            </tbody>
+            <%})%>
+        </table>
+      </div>
+      <div class="col-sm-4">
+        <h3>Keterangan Score</h3>
+        <table class="table table-hover">
+          <thead>
+            <th>Point Positive</th>
+            <th>Point Negative</th>
+            <th>Point Nol</th>
+          </thead>
+          <tbody>
+            <td>Memuaskan/Ideal</td>
+            <td>Kurang Memuaskan</td>
+            <td>Sesuai Ekspektasi</td>
+          </tbody>
+        </table>
+      </div>
+  </body>
+</html>

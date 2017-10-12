@@ -6,7 +6,8 @@ module.exports = function(sequelize, DataTypes) {
     nilai_harapan: DataTypes.INTEGER,
     nilai_kenyataan: DataTypes.INTEGER,
     nilai_gap: DataTypes.INTEGER,
-    nama_instruktur: DataTypes.STRING
+    nama_instruktur: DataTypes.STRING,
+    InstructorId: DataTypes.INTEGER
   }, {
     classMethods: {
       associate: function(models) {
@@ -18,6 +19,10 @@ module.exports = function(sequelize, DataTypes) {
   UserQuestioner.associate = function(models) {
     UserQuestioner.belongsTo(models.User);
     UserQuestioner.belongsTo(models.Questioner);
+    UserQuestioner.belongsTo(models.Instructor);
   }
+
+
+
   return UserQuestioner;
 };

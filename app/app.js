@@ -11,7 +11,7 @@ var users = require('./routes/users');
 
 var questioners = require('./routes/questioners');
 var questioner_students = require('./routes/questioner_students')
-
+var reporting  = require('./routes/reporting');
 var instructor = require('./routes/instructor')
 var app = express();
 
@@ -38,7 +38,7 @@ app.use('/users', users);
 app.use('/questioners', questioners )
 
 app.use('/questioner_students', questioner_students)
-
+app.use('/reporting', reporting)
 app.use('/instructor', instructor)
 
 // catch 404 and forward to error handler

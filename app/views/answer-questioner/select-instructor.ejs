@@ -2,16 +2,6 @@
 <html lang="en">
 <head>
 <%- include ../partial/head%>
-<script type="text/javascript">
-function clickAndDisable(link)
-{
-    link.onclick = function(event)
-    {
-        event.preventDefault();
-    }
-}
-</script>
-
 </head>
 <body>
     <%- include ../partial/menubar%>
@@ -33,15 +23,13 @@ function clickAndDisable(link)
                     </td>
                     <td>
                         <label>
-                            <input type="text" name="nama_instruktur" value="<%=r.name%>">
+                          <input type="text" name="nama_instruktur" value="<%=r.name%>">
                         </label>
                     </td>
                     <td>
-                      <% if (r.status != true) {%>
+
                       <a href="/questioner_students/<%=r.id%>/answer">CLICK</a>
-                      <% }else{ %>
-                        DONE!
-                        <%}%>
+                      
                     </td>
                 </tbody>
                 <%})%>

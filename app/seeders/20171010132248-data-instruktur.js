@@ -17,9 +17,9 @@ module.exports = {
     },{
       name: 'Ryan Akbar'
     },{
-      name: 'Windiana Chrismanuyar'
+      name: 'Windiana Krismanuyar'
     },{
-      name: 'Adithya Hidayah'
+      name: 'Adithya Hidayat'
     }], {});
   },
 

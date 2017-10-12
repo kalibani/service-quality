@@ -11,5 +11,8 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
+  Instructor.associate = function (models) {
+    Instructor.hasMany(models.UserQuestioner)
+  }
   return Instructor;
 };

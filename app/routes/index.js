@@ -67,7 +67,20 @@ router.post('/register', (req, res) => {
 // LOG OUT =====================
 router.get('/logout', (req, res) => {
   req.session.destroy();
-  res.redirect('/')
+  model.Instructor.update({
+    status: false
+
+  },{
+    where: {
+      id :  {[Op.between]: [1,5]}
+    }
+  })
+  .then(()=>{
+    res.redirect('/')
+  })
+  .catch(err=>{
+    res.send(err)
+  })
 })
 
 module.exports = router;

@@ -3,7 +3,7 @@ const router = express.Router();
 const model = require('../models');
 
 router.use((req, res, next) => {
-  if (req.session.hasLogin) {
+  if (req.session.hasLogin&& req.session.user.role == 'student') {
     next()
   } else {
     res.redirect('/')

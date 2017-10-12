@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const session = require('express-session')
+const env = process.env.NODE_ENV || "development";
 
 var index = require('./routes/index');
 var users = require('./routes/users');

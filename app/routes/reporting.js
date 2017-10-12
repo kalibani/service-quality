@@ -12,33 +12,6 @@ router.use((req, res, next) => {
   }
 })
 
-// router.get('/', (req, res)=>{
-//   model.UserQuestioner.findAll({
-//     where:{
-//       InstructorId :
-//     }
-//   })
-//   .then(result=>{
-//     model.Instructor.findAll()
-//     .then(instructor=>{
-//       let harapan = result.map(z=>{
-//         return z.nilai_harapan
-//       })
-//       let kenyataan = result.map(y=>{
-//         return y.nilai_kenyataan
-//       })
-//       let hasil = scoring(harapan, kenyataan)
-//       res.send({hasil, result})
-//     })
-//     .catch(err=>{
-//       console.log(err);
-//     })
-//   })
-//   .catch(err=>{
-//     res.send(err)
-//   })
-// })
-
 router.get('/', (req, res)=>{
   let query1 = `select
     "QuestionerId",
@@ -60,8 +33,7 @@ router.get('/', (req, res)=>{
       model.User.findAll()
       .then(jumlah=>{
         let count =  jumlah.length - 1
-        // console.log(jumlah.length);
-        // res.send({count})
+
         res.render('reporting/reporting', {data:data, title: 'title', session:req.session, count})
       })
   })

@@ -15,7 +15,7 @@ router.get('/', (req, res)=>{
     order: [['id', 'ASC']]
   })
   .then(dataQuestioner =>{
-    res.render('questioner/questioner', { dataQuestioner: dataQuestioner,  title: 'Questioner'})
+    res.render('questioner/questioner', { dataQuestioner: dataQuestioner,  title: 'Questioner', session: req.session})
   })
   .catch(err=>{
     res.send(err)
@@ -23,7 +23,7 @@ router.get('/', (req, res)=>{
 })
 
 router.get('/add', (req, res)=>{
-  res.render('questioner/add_questioner', { error: null, title: 'ADD Questioner'})
+  res.render('questioner/add_questioner', { error: null, title: 'ADD Questioner', session: req.session})
 })
 
 router.post('/add', (req, res)=>{
